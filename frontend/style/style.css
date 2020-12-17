@@ -14,12 +14,13 @@ header {
     overflow: hidden;
 }
 
-.home-page header, .new-post-page header  {
+.home-page header, .new-post-page header, header  {
     background-image: url(../assets/banner.jpeg);
 }
 
-.post-link {
+a.post-link {
     text-decoration: none;
+    color:#002349;
 }
 
 .navigation a {

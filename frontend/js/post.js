@@ -11,10 +11,31 @@ window.onload = () => {
   getPost();
 };
 
+const getPostIdParam = () => {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  //   console.log(urlParams.get("id"));
+  return urlParams.get("id");
+};
+
 const getPost = () => {
   // CODE GOES HERE
+  const postId = getPostIdParam();
+  const url = `${API_URL}${postId}`;
+  fetch(url, { method: "GET" })
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      buildPost(data);
+    });
 };
 
 const buildPost = (data) => {
   // HINT: Convert the date number to a Date string
+  //   console.log(data);
+  const date = new Date(parseInt(data.added_date)).toDateString();
+  document.getElementById("individual-post-title").innerText = data.title;
+  document.getElementById("individual-post-date").innerText = date;
+  document.getElementById("individual-post-content").innerText = data.content;
 };
