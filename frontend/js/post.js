@@ -36,6 +36,12 @@ const buildPost = (data) => {
   //   console.log(data);
   const date = new Date(parseInt(data.added_date)).toDateString();
   document.getElementById("individual-post-title").innerText = data.title;
-  document.getElementById("individual-post-date").innerText = date;
+  document.getElementById(
+    "individual-post-date"
+  ).innerText = `Published on ${date}`;
   document.getElementById("individual-post-content").innerText = data.content;
+
+  document.querySelector(
+    "header"
+  ).style.backgroundImage = `url(${API_BASE_URL}${data.post_image})`;
 };

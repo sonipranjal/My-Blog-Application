@@ -14,7 +14,7 @@ header {
     overflow: hidden;
 }
 
-.home-page header, .new-post-page header, header  {
+.home-page header, .new-post-page header  {
     background-image: url(../assets/banner.jpeg);
 }
 
