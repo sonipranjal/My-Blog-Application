@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const Post = require("./api/models/posts");
 var multer = require("multer");
+require("dotenv").config();
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -59,6 +60,8 @@ app.post("/api/posts", upload.single("post-image"), (req, res) => {
   res.status(201).send("ok");
 });
 
-app.listen(3000, () => {
-  console.log("listening on localhost 3000");
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log(`listening on localhost ${port}`);
 });
